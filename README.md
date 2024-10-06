@@ -69,6 +69,10 @@ FarmInSight utilizes various datasets to power its predictive models and user in
 - **National Weather Service (US)**
   - *Description*: Provide weather, water and climate data, forecasts, warnings, and impact-based decision support services for the protection of life and property and enhancement of the national economy.
   - *URL*: [https://www.weather.gov/wrh/climate](https://www.weather.gov/wrh/climate?wfo=ohx)
+ 
+- **MeteoMatics Weather API**
+  - *Description*: Meteomatics specializes in high-resolution commercial weather forecasting, power output forecasting for wind, solar and hydro, weather data gathering from the lower atmosphere using Meteodrones, and weather data delivery via the Weather API.
+  - *URL*: [https://www.meteomatics.com/](https://www.meteomatics.com/)
 
 ## Future Work
 
@@ -170,6 +174,7 @@ FarmInSight was developed using the following tools and resources:
 - **Material-UI (MUI)**: A popular React UI framework for designing responsive interfaces.
 - **Python**: Utilized for developing machine learning scripts.
 - **NASA**: For providing invaluable datasets through the NASA SpaceApps Challenge.
+- **MeteoMatics**: For providing efficient weather APIs with excellent developer experience.
 - **Open-Source Libraries**: Thanks to the open-source community for the myriad of libraries that made this project possible.
 
 We extend our gratitude to [NASA](https://github.com/NASA) for the opportunity to participate in the SpaceApps Challenge and for the access to high-quality datasets that form the backbone of FarmInSight.
