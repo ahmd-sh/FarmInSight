@@ -10,14 +10,28 @@ import { LineChart } from '@mui/x-charts/LineChart';
 import { Link } from '@mui/material';
 import userSettings from '@/config/userSettings';
 
-const WEATHER_API_URL = `https://api.meteomatics.com/${getLast12MonthsRange()}/precip_1h:mm/${userSettings.locationLat},${userSettings.locationLong}/json`;
+const WEATHER_API_URL = `https://api.meteomatics.com/${getLastMonthRange()}/precip_24h:mm/${userSettings.locationLat},${userSettings.locationLong}/json`;
 
-// Helper function to get the range of the last 12 months
-function getLast12MonthsRange() {
+// Helper function to get the date range for the last month
+function getLastMonthRange() {
   const today = new Date();
   const end = today.toISOString().split('T')[0]; // Current date in YYYY-MM-DD
-  const past = new Date(today.setMonth(today.getMonth() - 12)).toISOString().split('T')[0];
-  return `${past}T00:00:00Z--${end}T00:00:00Z:P1M`;
+  const start = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate()).toISOString().split('T')[0]; // Date one month ago
+  return `${start}T00:00:00Z--${end}T00:00:00Z:P1D`; // Return range with daily intervals (P1D)
+}
+
+// Helper function to get an array of days in the last month
+function getDaysInMonth() {
+  const days = [];
+  const today = new Date();
+  const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0); // Get last day of previous month
+  const totalDays = lastMonth.getDate();
+
+  for (let i = 1; i <= totalDays; i++) {
+    days.push(i.toString());
+  }
+
+  return days;
 }
 
 function AreaGradient({ color, id }) {
@@ -36,28 +50,13 @@ AreaGradient.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
-function getMonthsInYear() {
-  const months = [];
-  const date = new Date();
-  date.setMonth(date.getMonth() - 11);
-  for (let i = 0; i < 12; i++) {
-    const monthName = date.toLocaleDateString('en-US', {
-      month: 'short',
-      timeZone: 'UTC', // Ensures consistent month names regardless of locale
-    });
-    months.push(monthName);
-    date.setMonth(date.getMonth() + 1);
-  }
-  return months;
-}
-
 export default function SessionsChart() {
   const theme = useTheme();
   const [rainfallData, setRainfallData] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
 
-  const months = getMonthsInYear();
+  const daysInMonth = getDaysInMonth(); // Now showing days instead of months
 
   React.useEffect(() => {
     fetch(WEATHER_API_URL, {
@@ -69,9 +68,9 @@ export default function SessionsChart() {
       .then((data) => {
         let precipitationData = data.data[0].coordinates[0].dates.map(date => date.value);
 
-        // Ensure the data is only the last 12 months (slice if necessary)
-        if (precipitationData.length > 12) {
-          precipitationData = precipitationData.slice(-12);
+        // Ensure the data is only for the last month (slice if necessary)
+        if (precipitationData.length > daysInMonth.length) {
+          precipitationData = precipitationData.slice(-daysInMonth.length);
         }
 
         setRainfallData(precipitationData);
@@ -113,55 +112,55 @@ export default function SessionsChart() {
             }}
           >
             <Typography variant="h4" component="p">
-              {rainfallData.length ? `${Math.round(rainfallData[rainfallData.length - 1])} mm` : 'N/A'}
+              {rainfallData.length ? `${Math.round(rainfallData.reduce((total, value) => total + value, 0))} mm` : 'N/A'}
             </Typography>
-            <Chip size="small" color="success" label="+3% MoM" />
-          </Stack>
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            Rainfall per month for the last year
-          </Typography>
-          <Link href="https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGDE_06/summary?keywords=%22IMERG%20Early%22" target="_blank" rel="noopener noreferrer" sx={{ color: 'text.secondary' }}>
-            Courtesy of NASA IMERG
-          </Link>
+          <Chip size="small" color="success" label="+3% MoM" />
         </Stack>
-        <LineChart
-          colors={colorPalette}
-          xAxis={[
-            {
-              scaleType: 'point',
-              data: months,
-              tickInterval: (index, i) => (i + 1) % 1 === 0, // Show every month
-            },
-          ]}
-          series={[
-            {
-              id: 'rainfall-mm',
-              label: 'Rainfall (mm)',
-              showMark: false,
-              curve: 'linear',
-              stack: 'total',
-              area: true,
-              stackOrder: 'ascending',
-              data: rainfallData.length === 12 ? rainfallData : Array(12).fill(0), // Fallback to zeros if no data
-            },
-          ]}
-          height={250}
-          margin={{ left: 50, right: 20, top: 20, bottom: 20 }}
-          grid={{ horizontal: true }}
-          sx={{
-            '& .MuiAreaElement-series-rainfall-mm': {
-              fill: "url('#rainfall-mm')",
-            },
-          }}
-          slotProps={{
-            legend: {
-              hidden: true,
-            },
-          }}
-        >
-          <AreaGradient color={theme.palette.primary.light} id="rainfall-mm" />
-        </LineChart>
-      </CardContent>
-    </Card>
+        <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+          Total rainfall for the last month
+        </Typography>
+        <Link href="https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGDE_06/summary?keywords=%22IMERG%20Early%22" target="_blank" rel="noopener noreferrer" sx={{ color: 'text.secondary' }}>
+          Courtesy of NASA IMERG
+        </Link>
+      </Stack>
+      <LineChart
+        colors={colorPalette}
+        xAxis={[
+          {
+            scaleType: 'point',
+            data: daysInMonth,
+            tickInterval: (index, i) => (i + 1) % 1 === 0,
+          },
+        ]}
+        series={[
+          {
+            id: 'rainfall-mm',
+            label: 'Rainfall (mm)',
+            showMark: false,
+            curve: 'linear',
+            stack: 'total',
+            area: true,
+            stackOrder: 'ascending',
+            data: rainfallData.length === daysInMonth.length ? rainfallData : Array(daysInMonth.length).fill(0),
+          },
+        ]}
+        height={250}
+        margin={{ left: 50, right: 20, top: 20, bottom: 20 }}
+        grid={{ horizontal: true }}
+        sx={{
+          '& .MuiAreaElement-series-rainfall-mm': {
+            fill: "url('#rainfall-mm')",
+          },
+        }}
+        slotProps={{
+          legend: {
+            hidden: true,
+          },
+        }}
+      >
+        <AreaGradient color={theme.palette.primary.light} id="rainfall-mm" />
+      </LineChart>
+    </CardContent>
+    </Card >
   );
 }

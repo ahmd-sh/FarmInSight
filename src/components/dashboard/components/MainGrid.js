@@ -24,7 +24,7 @@ const data = [
   {
     title: 'Crop Expected Health',
     value: '95%',
-    interval: 'Based on precipitation, soil moisture, and humidity data',
+    interval: '(Future Work) Based on precipitation, soil moisture, and humidity data',
     trend: 'up',
     data: dataModelValues.cropHealthPrediction.data,
   },

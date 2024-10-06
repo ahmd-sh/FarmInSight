@@ -22,10 +22,10 @@ export default function HighlightedCard() {
           gutterBottom
           sx={{ fontWeight: '600' }}
         >
-          View Insights
+          View Actionable Insights
         </Typography>
         <Typography sx={{ color: 'text.secondary', mb: '8px' }}>
-          Use current environmental data, crop data, and your lists to view smart insights.
+        (Future Work) Use current environmental data, crop data, and your lists to get actionable insights.
         </Typography>
         <Button
           variant="contained"
