@@ -42,7 +42,7 @@ Rainfall and drought predictions are made by analyzing historical data collected
 
 If implemented with the future work, the tool will provide valuable climate insights to farmers constantly affected by adverse weather conditions. The dashboard reduces complex datasets into bite-sized information, simplifying future crop production planning for farmers in a particular region.
 
-The team hopes to have a reliable model that can help farmers plan their farming needs by understanding the current climate conditions from a statistical perspective. 
+The team aims to have a reliable model that can help farmers plan their farming needs by understanding the current climate conditions from a statistical perspective. 
 
 In terms of tools, coding languages, and software, the team used Next.JS with JavaScript for the Frontend, Python for Data Analysis and Machine Learning, and Material UI for the design guidelines.
 
