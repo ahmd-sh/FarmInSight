@@ -19,7 +19,9 @@ FarmInSight is a web application developed as part of the NASA SpaceApps Challen
 
 ### Challenge Statement
 
-Current climate conditions have negatively impacted the environment, often damaging crop production and causing massive delays in food supply. We approached this problem by creating a dashboard to present climate data collected using NASA's satellites to intelligently inform farmers of imminent dangers to their farmland, such as floods or droughts. The tool provides an interactive dashboard to visually present NASA's collection of weather data, including precipitation, floods, and droughts for farmers across the globe. The dashboard reports on future predictions of rainfall and drought while advising on flood readiness practices. This tool provides a clear risk assessment of possible floods and droughts by decrypting complex data reports and giving insights into future precipitation conditions. These features should allow farmers to plan future crop production and improve crop quality/yield. A successful application of this tool can empower farmers to take advantage of NASA's research and development in tracking climate conditions while providing food security for future generations.
+#### Leveraging Earth Observation Data for Informed Agricultural Decision-Making
+
+Farmers face a deluge of water-related challenges due to unpredictable weather, pests, and diseases. These factors can significantly impact crop health, farmers’ profits, and food security. Depending upon the geography, many farmers may face droughts or floods—sometimes both of these extreme events occur within the same season! Your challenge is to design a tool that empowers farmers to easily explore, analyze, and utilize NASA datasets to address these water-related concerns and improve their farming practices.
 
 ### Some Objectives
 
@@ -30,13 +32,15 @@ Current climate conditions have negatively impacted the environment, often damag
 
 ### Our Solution: FarmInSight
 
+<h3 align="center"><img width="700" alt="app screenshots" src="./public/assets/farminsight-web.webp"></h3>
+
 FarmInSight addresses these challenges by providing a comprehensive platform that integrates predictive analytics with an easy-to-use interface. By forecasting drought and precipitation levels, farmers can proactively adjust their workflows, ensuring better crop management and increased productivity.
 
 The dashboard provides valuable insights into future weather and climate conditions such as rainfall and drought. It alerts farmers of impending natural calamities while recommending measures to optimize crop production according to the availability of rainwater. 
 
 Rainfall and drought predictions are made by analyzing historical data collected from NASA to create future trends. The data collected for these trends is fed into a machine-learning model that calculates and predicts similar climate patterns in the future. The larger the dataset, the better the prediction model. 
 
-If implemented efficiently, the tool should provide valuable climate insights to farmers constantly affected by adverse weather conditions. The dashboard reduces complex datasets into bite-size information, simplifying future crop production planning for farmers in a particular region. 
+If implemented with the future work, the tool will provide valuable climate insights to farmers constantly affected by adverse weather conditions. The dashboard reduces complex datasets into bite-sized information, simplifying future crop production planning for farmers in a particular region.
 
 The team hopes to have a reliable model that can help farmers plan their farming needs by understanding the current climate conditions from a statistical perspective. 
 
@@ -70,6 +74,9 @@ FarmInSight utilizes various datasets to power its predictive models and user in
 
 FarmInSight is an MVP with several avenues for future enhancement:
 
+- **Collaborative Farming Workflows**
+  - Coordinate farmers by defined geopolitical regions to further support the agriculture economy through smart directions (e.g., which crops to grow based on other farmers around you) and transparent communication (e.g., insights into other farms).
+
 - **Enhanced Predictive Models**
   - Incorporate more advanced machine learning algorithms to improve prediction accuracy.
   
@@ -78,15 +85,9 @@ FarmInSight is an MVP with several avenues for future enhancement:
   
 - **User Authentication and Personalization**
   - Implement user accounts to personalize insights based on individual farm data.
-  
-- **Mobile Application Development**
-  - Develop mobile versions of the application for on-the-go access.
-  
+      
 - **Expanded Data Sources**
   - Incorporate additional datasets, such as soil quality and crop health metrics.
-  
-- **Scalability Improvements**
-  - Optimize the application infrastructure to support a larger user base.
 
 ## Setup
 
