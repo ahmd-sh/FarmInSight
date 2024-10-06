@@ -1,0 +1,31 @@
+{
+  "name": "material-ui-nextjs",
+  "version": "5.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@mui/material-nextjs": "latest",
+    "@mui/x-charts": "^7.19.0",
+    "@mui/x-data-grid": "^7.19.0",
+    "@mui/x-date-pickers": "^7.19.0",
+    "@mui/x-tree-view": "^7.19.0",
+    "dayjs": "^1.11.13",
+    "dayjs-plugin-utc": "^0.1.2",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "^6.26.2"
+  }
+}
