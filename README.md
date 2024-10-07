@@ -2,6 +2,8 @@
 
 FarmInSight is a web application developed as part of the NASA SpaceApps Challenge. It empowers farmers by providing actionable insights to optimize their workflows, leveraging data-driven predictions for drought and precipitation levels.
 
+[farminsight.vercel.app](https://farminsight.vercel.app/)
+
 ## Table of Contents
 
 - [Project Info](#project-info)
@@ -32,7 +34,7 @@ Farmers face a deluge of water-related challenges due to unpredictable weather, 
 
 ### Our Solution: FarmInSight
 
-<h3 align="center"><img width="700" alt="app screenshots" src="./public/assets/farminsight-web.webp"></h3>
+<h3 align="center"><img width="700" alt="app screenshot" src="./public/assets/farminsight-web.webp"></h3>
 
 FarmInSight addresses these challenges by providing a comprehensive platform that integrates predictive analytics with an easy-to-use interface. By forecasting drought and precipitation levels, farmers can proactively adjust their workflows, ensuring better crop management and increased productivity.
 
