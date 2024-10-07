@@ -16,8 +16,8 @@ import dataModelValues from '@/config/dataModelValues';
 const data = [
   {
     title: 'DroughtWatch Risk Prediction',
-    value: 'D2 (Severe Drought)',
-    interval: 'Next 12 months',
+    value: 'D2 (Severe Drought) Levels',
+    interval: 'Predictions for next 12 months',
     trend: 'down',
     data: dataModelValues.droughtWatchPrediction.d2_data,
   },

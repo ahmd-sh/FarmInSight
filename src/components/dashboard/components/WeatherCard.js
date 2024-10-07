@@ -3,9 +3,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CloudIcon from '@mui/icons-material/Cloud';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-import { Link } from '@mui/material';
 import userSettings from '@/config/userSettings';
 
 const WEATHER_API_URL = `https://api.meteomatics.com/now/t_2m:C,wind_speed_10m:ms,weather_symbol_1h:idx/${userSettings.locationLat},${userSettings.locationLong}/json`;
@@ -84,9 +81,9 @@ export default function WeatherCard() {
         <Typography sx={{ color: 'text.warning' }}>
           Thunderstorm likely in 6 days.
         </Typography>
-        <Link href="checklists" sx={{ color: 'text.secondary' }}>
-          Review your checklist.
-        </Link>
+        <Typography sx={{ color: 'text.secondary', mb: '8px' }}>
+          Review your checklists through the Lists section on the left pane.
+        </Typography>
       </CardContent>
     </Card>
   );

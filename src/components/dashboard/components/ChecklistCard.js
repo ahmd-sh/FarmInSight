@@ -29,7 +29,7 @@ export default function ChecklistCard() {
       <CardContent>
         <AssignmentIcon />
         <Typography variant="h6" gutterBottom>
-          Checklist
+          Thunderstorm Preparedness
         </Typography>
         {/* Checklist items */}
         <FormControlLabel

@@ -74,6 +74,10 @@ FarmInSight utilizes various datasets to power its predictive models and user in
   - *Description*: Meteomatics specializes in high-resolution commercial weather forecasting, power output forecasting for wind, solar and hydro, weather data gathering from the lower atmosphere using Meteodrones, and weather data delivery via the Weather API.
   - *URL*: [https://www.meteomatics.com/](https://www.meteomatics.com/)
 
+- **NASA EarthData GES DISC IMERG**
+  - *Description*: The GES DISC specializes in archiving, distributing, stewarding, and providing user data access and analysis services for remote sensing data associated with global Atmospheric Composition, Atmospheric Dynamics, Hydrology, Precipitation, and Global Modeling data.
+  - *URL*: [https://disc.gsfc.nasa.gov/](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGDE_06/summary?keywords=%22IMERG%20Early%22)
+
 ## Future Work
 
 FarmInSight is an MVP with several avenues for future enhancement:
